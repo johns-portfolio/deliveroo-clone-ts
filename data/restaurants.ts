@@ -5,13 +5,15 @@ export type RestaurantType = {
   genre: string
   address: string
   short_description: string
-  dishes: {
-    id: string
-    name: string
-    description: string
-    price: number
-    image: string
-  }[]
+  dishes: Dish[]
+}
+
+export type Dish = {
+  id: string
+  name: string
+  description: string
+  price: number
+  image: string
 }
 
 export const restaurants: RestaurantType[] = [
