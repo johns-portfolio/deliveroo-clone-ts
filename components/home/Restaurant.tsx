@@ -2,14 +2,9 @@ import { useNavigation } from '@react-navigation/native'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { LocationMarkerIcon } from 'react-native-heroicons/outline'
 import { StarIcon } from 'react-native-heroicons/solid'
+import { RestaurantType } from '../../data/restaurants'
 
-const Restaurant = (props: {
-  imgUrl: string
-  title: string
-  rating: number
-  genre: string
-  address: string
-}) => {
+const Restaurant = (props: RestaurantType) => {
   const { imgUrl, title, rating, genre, address } = props
   const nav = useNavigation()
 
