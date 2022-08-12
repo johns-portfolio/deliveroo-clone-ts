@@ -10,7 +10,7 @@ import { addCart, removeCart } from '../../state/features/carts/cartsSlice'
 const MenuItem = ({ id, name, description, price, image }: Dish) => {
   const [isPressed, setIsPressed] = useState(false)
 
-  const carts = useAppSelector((state: RootState) => state.carts)
+  const carts = useAppSelector((state: RootState) => state.carts.carts)
   const dispatch = useAppDispatch()
   const cartItem = carts.find((c) => c.menuId === id)
 
