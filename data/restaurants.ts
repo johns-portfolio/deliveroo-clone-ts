@@ -85,7 +85,7 @@ export const restaurants: RestaurantType[] = [
       'Enjoy deals at some of the most vibrant dining destinations in New York City. Use the filters below to browse by location, cuisine and more—or find inspiration in one of our curated collections.',
     dishes: [
       {
-        id: '1001',
+        id: '2001',
         name: 'Secret Recipe Fries',
         description:
           'Crispier than your average fry and seasoned with our Secret Recipe.',
@@ -94,7 +94,7 @@ export const restaurants: RestaurantType[] = [
         price: 4.19
       },
       {
-        id: '1002',
+        id: '2002',
         name: 'Famous Bowl',
         description:
           'Creamy mashed potatoes, sweet corn, and bite-sized chunks of crispy chicken are layered together then drizzled with home-style gravy and topped with a perfect blend of three shredded cheeses.',
@@ -103,7 +103,7 @@ export const restaurants: RestaurantType[] = [
         price: 6.83
       },
       {
-        id: '1003',
+        id: '2003',
         name: 'A La Carte Drum',
         description:
           '1 Drum piece of our freshly prepared chicken, available in Original Recipe or Extra Crispy.',
@@ -112,7 +112,7 @@ export const restaurants: RestaurantType[] = [
         price: 5.39
       },
       {
-        id: '1004',
+        id: '2004',
         name: '8 pc. Family Bucket Meal',
         description:
           'Feeds 3-4. 8 pieces of our freshly prepared World Famous Chicken, available in Original Recipe or Extra Crispy, 2 large sides of your choice, and 4 biscuits.',
@@ -121,7 +121,7 @@ export const restaurants: RestaurantType[] = [
         price: 35.39
       },
       {
-        id: '1005',
+        id: '2005',
         name: '12pc Meal with FREE Beverage Bucket',
         description:
           'Feeds 5-6. 12 pieces of our freshly prepared World Famous Chicken, available in Original Recipe or Extra Crispy, 3 large sides of your choice, and 6 biscuits. Now includes a FREE Beverage Bucket for a limited time only! Available through September 11th at participating locations with purchase of 12 pc and 16 pc meals, while supplies last. Customer responsible for taxes and fees.',
@@ -142,7 +142,7 @@ export const restaurants: RestaurantType[] = [
       'Enjoy deals at some of the most vibrant dining destinations in New York City. Use the filters below to browse by location, cuisine and more—or find inspiration in one of our curated collections.',
     dishes: [
       {
-        id: '1001',
+        id: '3001',
         name: 'Secret Recipe Fries',
         description:
           'Crispier than your average fry and seasoned with our Secret Recipe.',
@@ -151,7 +151,7 @@ export const restaurants: RestaurantType[] = [
         price: 4.19
       },
       {
-        id: '1002',
+        id: '3002',
         name: 'Famous Bowl',
         description:
           'Creamy mashed potatoes, sweet corn, and bite-sized chunks of crispy chicken are layered together then drizzled with home-style gravy and topped with a perfect blend of three shredded cheeses.',
@@ -160,7 +160,7 @@ export const restaurants: RestaurantType[] = [
         price: 6.83
       },
       {
-        id: '1003',
+        id: '3003',
         name: 'A La Carte Drum',
         description:
           '1 Drum piece of our freshly prepared chicken, available in Original Recipe or Extra Crispy.',
@@ -169,7 +169,7 @@ export const restaurants: RestaurantType[] = [
         price: 5.39
       },
       {
-        id: '1004',
+        id: '3004',
         name: '8 pc. Family Bucket Meal',
         description:
           'Feeds 3-4. 8 pieces of our freshly prepared World Famous Chicken, available in Original Recipe or Extra Crispy, 2 large sides of your choice, and 4 biscuits.',
@@ -178,7 +178,7 @@ export const restaurants: RestaurantType[] = [
         price: 35.39
       },
       {
-        id: '1005',
+        id: '3005',
         name: '12pc Meal with FREE Beverage Bucket',
         description:
           'Feeds 5-6. 12 pieces of our freshly prepared World Famous Chicken, available in Original Recipe or Extra Crispy, 3 large sides of your choice, and 6 biscuits. Now includes a FREE Beverage Bucket for a limited time only! Available through September 11th at participating locations with purchase of 12 pc and 16 pc meals, while supplies last. Customer responsible for taxes and fees.',

@@ -3,10 +3,16 @@ import React, { useState } from 'react'
 import { format as currencyFormat } from 'currency-formatter'
 import { Dish } from '../../data/restaurants'
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/solid'
+import { useAppDispatch, useAppSelector } from '../../state/hooks'
+import { RootState } from '../../state/store'
+import { addCart, removeCart } from '../../state/features/carts/cartsSlice'
 
-const MenuItem = ({ name, description, price, image }: Dish) => {
+const MenuItem = ({ id, name, description, price, image }: Dish) => {
   const [isPressed, setIsPressed] = useState(false)
-  const [qty, setQty] = useState(0)
+
+  const carts = useAppSelector((state: RootState) => state.carts)
+  const dispatch = useAppDispatch()
+  const cartItem = carts.find((c) => c.menuId === id)
 
   return (
     <View className="bg-white my-1 p-4">
@@ -30,13 +36,11 @@ const MenuItem = ({ name, description, price, image }: Dish) => {
       </TouchableOpacity>
       {isPressed && (
         <View className="flex-row items-center space-x-2 mt-4">
-          <TouchableOpacity
-            onPress={() => setQty((oldValue: number) => --oldValue)}
-          >
+          <TouchableOpacity onPress={() => dispatch(removeCart(id))}>
             <MinusCircleIcon color={'#00CCBB'} size={40} />
           </TouchableOpacity>
-          <Text className="font-bold text-gray-900">{qty}</Text>
-          <TouchableOpacity onPress={() => setQty((oldValue) => ++oldValue)}>
+          <Text className="font-bold text-gray-900">{cartItem?.qty || 0}</Text>
+          <TouchableOpacity onPress={() => dispatch(addCart(id))}>
             <PlusCircleIcon color={'#00CCBB'} size={40} />
           </TouchableOpacity>
         </View>
