@@ -1,47 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-
-// Define a type for the slice state
-interface Cart {
-  menuId: string
-  qty: number
-}
-
+import { RootState } from '../../store'
+import { Dish } from '../../../data/restaurants'
 interface CartState {
-  carts: Cart[]
+  items: Dish[]
 }
 
 // Define the initial state using that type
 const initialState: CartState = {
-  carts: []
+  items: []
 }
 
 export const cartsSlice = createSlice({
   name: 'carts',
   initialState,
   reducers: {
-    addCart: (state, action: PayloadAction<string>) => {
-      const existCart = state.carts.find((c) => c.menuId === action.payload)
-      if (existCart) {
-        existCart.qty++
-      } else {
-        state.carts.push({
-          menuId: action.payload,
-          qty: 1
-        })
-      }
+    addCart: (state, action: PayloadAction<Dish>) => {
+      state.items.push({ ...action.payload })
     },
     removeCart: (state, action: PayloadAction<string>) => {
-      const existCart = state.carts.find((c) => c.menuId === action.payload)
-      if (existCart && existCart?.qty > 1) {
-        existCart.qty--
-      } else {
-        state.carts = state.carts.filter((c) => c.menuId !== action.payload)
+      const itemIndex = state.items.findIndex((c) => c.id === action.payload)
+      if (itemIndex >= 0) {
+        state.items.splice(itemIndex, 1)
       }
     }
   }
 })
 
 export const { addCart, removeCart } = cartsSlice.actions
+
+export const getCarts = (state: RootState) => state.carts.items
+export const getCartsById = (state: RootState, id: string) =>
+  state.carts.items.filter((c) => c.id === id)
+
+export const getItemCount = (state: RootState) => state.carts.items.length
+export const getTotalPrice = (state: RootState) =>
+  state.carts.items.reduce((total, c) => (total += c.price), 0)
 
 export default cartsSlice.reducer

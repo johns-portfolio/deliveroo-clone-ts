@@ -1,18 +1,21 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import { format as currencyFormat } from 'currency-formatter'
 import { Dish } from '../../data/restaurants'
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/solid'
 import { useAppDispatch, useAppSelector } from '../../state/hooks'
-import { RootState } from '../../state/store'
-import { addCart, removeCart } from '../../state/features/carts/cartsSlice'
+import {
+  addCart,
+  getCartsById,
+  removeCart
+} from '../../state/features/carts/cartsSlice'
+import Currency from 'react-currency-formatter'
 
-const MenuItem = ({ id, name, description, price, image }: Dish) => {
+const MenuItem = (props: Dish) => {
+  const { id, name, description, price, image } = props
   const [isPressed, setIsPressed] = useState(false)
 
-  const carts = useAppSelector((state: RootState) => state.carts.carts)
+  const carts = useAppSelector((state) => getCartsById(state, id))
   const dispatch = useAppDispatch()
-  const cartItem = carts.find((c) => c.menuId === id)
 
   return (
     <View className="bg-white my-1 p-4">
@@ -27,7 +30,7 @@ const MenuItem = ({ id, name, description, price, image }: Dish) => {
           <Text className="font-bold text-lg text-gray-500">{name}</Text>
           <Text className="text-gray-500">{description}</Text>
           <Text className="mt-2 text-gray-500 font-bold">
-            {currencyFormat(price, { code: 'GBP' })}
+            <Currency quantity={price} currency="GBP" />
           </Text>
         </View>
         <View className="border-gray-100 border-x border-y">
@@ -39,8 +42,8 @@ const MenuItem = ({ id, name, description, price, image }: Dish) => {
           <TouchableOpacity onPress={() => dispatch(removeCart(id))}>
             <MinusCircleIcon color={'#00CCBB'} size={40} />
           </TouchableOpacity>
-          <Text className="font-bold text-gray-900">{cartItem?.qty || 0}</Text>
-          <TouchableOpacity onPress={() => dispatch(addCart(id))}>
+          <Text className="font-bold text-gray-900">{carts.length}</Text>
+          <TouchableOpacity onPress={() => dispatch(addCart(props))}>
             <PlusCircleIcon color={'#00CCBB'} size={40} />
           </TouchableOpacity>
         </View>
