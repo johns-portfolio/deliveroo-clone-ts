@@ -3,14 +3,27 @@ import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { LocationMarkerIcon } from 'react-native-heroicons/outline'
 import { StarIcon } from 'react-native-heroicons/solid'
 import { RestaurantType } from '../../data/restaurants'
+import { clearAllCart } from '../../state/features/carts/cartsSlice'
+import {
+  getCurrentRestaurant,
+  setCurrentRestaurant
+} from '../../state/features/carts/restaurantSlice'
+import { useAppDispatch, useAppSelector } from '../../state/hooks'
 
 const Restaurant = (props: RestaurantType) => {
   const { imgUrl, title, rating, genre, address } = props
   const nav = useNavigation()
+  const dispatch = useAppDispatch()
+  const restaurant = useAppSelector(getCurrentRestaurant)
 
   return (
     <TouchableOpacity
       onPress={() => {
+        dispatch(setCurrentRestaurant(props))
+        if (restaurant?.title !== title) {
+          dispatch(clearAllCart())
+        }
+
         nav.navigate('Restaurant' as never, props as never)
       }}
     >

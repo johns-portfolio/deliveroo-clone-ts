@@ -8,14 +8,6 @@ import Categories from '../components/home/Categories'
 import Features from '../components/home/Features'
 
 export default function Home() {
-  const nav = useNavigation()
-
-  useLayoutEffect(() => {
-    nav.setOptions({
-      headerShown: false
-    })
-  }, [])
-
   return (
     <SafeAreaView className="bg-white">
       <Header />

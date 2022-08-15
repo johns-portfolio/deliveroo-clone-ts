@@ -37,7 +37,7 @@ const MenuItem = (props: Dish) => {
           <Image source={{ uri: image }} className="h-20 w-20" />
         </View>
       </TouchableOpacity>
-      {isPressed && (
+      {(isPressed || carts.length > 0) && (
         <View className="flex-row items-center space-x-2 mt-4">
           <TouchableOpacity onPress={() => dispatch(removeCart(id))}>
             <MinusCircleIcon color={'#00CCBB'} size={40} />

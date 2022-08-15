@@ -7,16 +7,8 @@ import RestaurantDetail from '../components/restaurantScreen/RestaurantDetail'
 import TopCoverImage from '../components/restaurantScreen/TopCoverImage'
 import BasketPanel from '../components/restaurantScreen/BasketPanel'
 
-const RestaurantScreen: React.FC = () => {
+const RestaurantScreen = () => {
   const props = useRoute().params as RestaurantType
-  console.log('🔥 params', useRoute().params)
-  const nav = useNavigation()
-
-  useLayoutEffect(() => {
-    nav.setOptions({
-      headerShown: false
-    })
-  }, [])
 
   return (
     <>
