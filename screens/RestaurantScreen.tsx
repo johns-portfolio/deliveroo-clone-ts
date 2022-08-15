@@ -16,7 +16,6 @@ const RestaurantScreen = () => {
         <TopCoverImage {...props} />
         <RestaurantDetail {...props} />
         <MenuList {...props} />
-        <Text>ZZZZZZZZZZZZ</Text>
       </ScrollView>
       <BasketPanel />
     </>

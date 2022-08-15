@@ -6,6 +6,8 @@ export type RestaurantType = {
   address: string
   short_description: string
   dishes: Dish[]
+  latitude: number
+  longitude: number
 }
 
 export type Dish = {
@@ -26,6 +28,8 @@ export const restaurants: RestaurantType[] = [
     address: '123 abc',
     short_description:
       'Enjoy deals at some of the most vibrant dining destinations in New York City. Use the filters below to browse by location, cuisine and more—or find inspiration in one of our curated collections.',
+    latitude: 13.877314449954541,
+    longitude: 100.41128392887872,
     dishes: [
       {
         id: '1001',
@@ -83,6 +87,8 @@ export const restaurants: RestaurantType[] = [
     address: '123 abc',
     short_description:
       'Enjoy deals at some of the most vibrant dining destinations in New York City. Use the filters below to browse by location, cuisine and more—or find inspiration in one of our curated collections.',
+    latitude: 13.877314449954541,
+    longitude: 100.41128392887872,
     dishes: [
       {
         id: '2001',
@@ -140,6 +146,8 @@ export const restaurants: RestaurantType[] = [
     address: '123 abc',
     short_description:
       'Enjoy deals at some of the most vibrant dining destinations in New York City. Use the filters below to browse by location, cuisine and more—or find inspiration in one of our curated collections.',
+    latitude: 13.877314449954541,
+    longitude: 100.41128392887872,
     dishes: [
       {
         id: '3001',

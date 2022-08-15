@@ -1,15 +1,26 @@
 import { View, Text } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as Animatable from 'react-native-animatable'
 import * as Progress from 'react-native-progress'
 import { useNavigation } from '@react-navigation/native'
 
+const getData = (): Promise<string> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('test')
+    }, 1000)
+  })
+}
+
 const PreparingOrderScreen = () => {
   const nav = useNavigation()
+  const [data, setData] = useState('')
+
   useEffect(() => {
-    setTimeout(() => {
+    getData().then((c) => {
+      setData(c)
       nav.navigate('Delivery' as never)
-    }, 4000)
+    })
   }, [])
 
   return (
